@@ -1,0 +1,67 @@
+{
+  "members": [
+    {
+      "id": "karen",
+      "name": "王正妹",
+      "nickname": "Karen / 班長",
+      "device": "Garmin Forerunner S70",
+      "role": "創辦人 & 班長",
+      "emoji": "🎯",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "joseph",
+      "name": "鳩鴿",
+      "nickname": "Joseph / 鳩鴿",
+      "device": "Garmin Connect",
+      "role": "賽評記者",
+      "emoji": "🕊️",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "juhua",
+      "name": "陳菊花",
+      "nickname": "菊花 / 奶奶",
+      "device": "Garmin Vivosmart 4",
+      "role": "步數之王",
+      "emoji": "🌸",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "cynthia",
+      "name": "搖不停",
+      "nickname": "Cynthia / 快走婷",
+      "device": "Garmin Vivosmart 4",
+      "role": "REM 睡眠大師",
+      "emoji": "🌀",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "nana",
+      "name": "單庶娜",
+      "nickname": "Nana",
+      "device": "Apple Watch SE",
+      "role": "空中飛人",
+      "emoji": "✨",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "jay",
+      "name": "盧美凡",
+      "nickname": "Jay / 無臉男",
+      "device": "Garmin Vivosmart 4",
+      "role": "公路車手",
+      "emoji": "🎭",
+      "joined": "2026-02-26"
+    },
+    {
+      "id": "ray",
+      "name": "Ray",
+      "nickname": "Ray",
+      "device": "Garmin Connect",
+      "role": "空降怪物",
+      "emoji": "⚡",
+      "joined": "2026-04-19"
+    }
+  ]
+}

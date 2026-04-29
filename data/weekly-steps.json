@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "community": "三萬步健康社群",
+    "weekly_goal": 30000,
+    "start_date": "2026-03-01",
+    "last_updated": "2026-04-28"
+  },
+  "weeks": [
+    {
+      "week": 1, "period": "2026/03/01–07",
+      "results": [
+        {"rank":1,"name":"菊花","steps":81098,"reached":true},
+        {"rank":2,"name":"王正妹","steps":71227,"reached":true},
+        {"rank":3,"name":"鳩鴿","steps":60271,"reached":true},
+        {"rank":4,"name":"搖不停","steps":45381,"reached":true},
+        {"rank":5,"name":"Nana","steps":45301,"reached":true},
+        {"rank":6,"name":"Jay","steps":42843,"reached":true}
+      ]
+    },
+    {
+      "week": 2, "period": "2026/03/08–14",
+      "results": [
+        {"rank":1,"name":"菊花","steps":81098,"reached":true},
+        {"rank":2,"name":"鳩鴿","steps":75058,"reached":true},
+        {"rank":3,"name":"王正妹","steps":73125,"reached":true},
+        {"rank":4,"name":"搖不停","steps":61654,"reached":true},
+        {"rank":5,"name":"Nana","steps":54432,"reached":true},
+        {"rank":6,"name":"Jay","steps":44468,"reached":true}
+      ]
+    },
+    {
+      "week": 3, "period": "2026/03/15–21",
+      "results": [
+        {"rank":1,"name":"菊花","steps":110839,"reached":true},
+        {"rank":2,"name":"鳩鴿","steps":85284,"reached":true},
+        {"rank":3,"name":"王正妹","steps":81260,"reached":true},
+        {"rank":4,"name":"搖不停","steps":74116,"reached":true},
+        {"rank":5,"name":"Nana","steps":39891,"reached":true},
+        {"rank":6,"name":"Jay","steps":33330,"reached":true}
+      ]
+    },
+    {
+      "week": 4, "period": "2026/03/22–28",
+      "results": [
+        {"rank":1,"name":"菊花","steps":104015,"reached":true},
+        {"rank":2,"name":"鳩鴿","steps":77525,"reached":true},
+        {"rank":3,"name":"搖不停","steps":68959,"reached":true},
+        {"rank":4,"name":"王正妹","steps":55213,"reached":true},
+        {"rank":5,"name":"Nana","steps":40898,"reached":true},
+        {"rank":6,"name":"Jay","steps":34952,"reached":true}
+      ]
+    },
+    {
+      "week": 5, "period": "2026/03/29–04/04",
+      "results": [
+        {"rank":1,"name":"鳩鴿","steps":91119,"reached":true},
+        {"rank":2,"name":"搖不停","steps":84844,"reached":true},
+        {"rank":3,"name":"菊花","steps":77075,"reached":true},
+        {"rank":4,"name":"王正妹","steps":74417,"reached":true},
+        {"rank":5,"name":"Jay","steps":43701,"reached":true},
+        {"rank":6,"name":"Nana","steps":35710,"reached":true}
+      ]
+    },
+    {
+      "week": 6, "period": "2026/04/05–11",
+      "results": [
+        {"rank":1,"name":"鳩鴿","steps":85058,"reached":true},
+        {"rank":2,"name":"王正妹","steps":73125,"reached":true},
+        {"rank":3,"name":"菊花","steps":66818,"reached":true},
+        {"rank":4,"name":"搖不停","steps":65682,"reached":true},
+        {"rank":5,"name":"Nana","steps":35106,"reached":true},
+        {"rank":6,"name":"Jay","steps":34569,"reached":true}
+      ]
+    },
+    {
+      "week": 7, "period": "2026/04/12–18",
+      "results": [
+        {"rank":1,"name":"鳩鴿","steps":95125,"reached":true},
+        {"rank":2,"name":"菊花","steps":92768,"reached":true},
+        {"rank":3,"name":"Nana","steps":75719,"reached":true},
+        {"rank":4,"name":"王正妹","steps":58734,"reached":true},
+        {"rank":5,"name":"搖不停","steps":44645,"reached":true},
+        {"rank":6,"name":"Jay","steps":33713,"reached":true}
+      ]
+    },
+    {
+      "week": 8, "period": "2026/04/19–25",
+      "results": [
+        {"rank":1,"name":"Ray","steps":124321,"reached":true,"note":"全群史上最高紀錄"},
+        {"rank":2,"name":"鳩鴿","steps":74899,"reached":true},
+        {"rank":3,"name":"菊花","steps":68107,"reached":true},
+        {"rank":4,"name":"搖不停","steps":45156,"reached":true},
+        {"rank":5,"name":"Nana","steps":39104,"reached":true},
+        {"rank":6,"name":"王正妹","steps":31148,"reached":true},
+        {"rank":7,"name":"Jay","steps":0,"reached":false,"note":"手環遺失在民宿"}
+      ]
+    }
+  ]
+}
