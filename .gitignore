@@ -1,0 +1,8 @@
+# 絕對不要 commit 這些敏感文件
+auth/token_*.json
+auth/*.json
+.env
+*.env
+scripts/__pycache__/
+*.pyc
+.DS_Store
