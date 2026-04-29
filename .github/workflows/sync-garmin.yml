@@ -2,46 +2,60 @@ name: 🦶 每日 Garmin 數據同步
 
 on:
   schedule:
-    # 每天台灣時間 08:00（UTC 00:00）和 21:00（UTC 13:00）各跑一次
+    # 台灣時間 08:00 (UTC 00:00) 和 21:00 (UTC 13:00)
     - cron: '0 0 * * *'
     - cron: '0 13 * * *'
-  workflow_dispatch:  # 允許手動觸發
+  workflow_dispatch:  # 允許手動觸發測試
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 允許寫入 repo
+      contents: write
 
     steps:
-      - name: 📥 Checkout repo
+      - name: 📥 Checkout
         uses: actions/checkout@v4
 
-      - name: 🐍 Setup Python
+      - name: 🐍 Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: 📦 Install dependencies
-        run: pip install requests python-dateutil pytz
+      - name: 📦 Install garminconnect
+        run: pip install garminconnect==0.3.3 requests pytz
 
-      - name: 🏃 Fetch Garmin data for all members
+      - name: 🏃 Fetch all members' Garmin data
         env:
-          # 每位成員的 Garmin OAuth tokens（存在 GitHub Secrets）
-          GARMIN_TOKEN_KAREN:    ${{ secrets.GARMIN_TOKEN_KAREN }}
-          GARMIN_TOKEN_JOSEPH:   ${{ secrets.GARMIN_TOKEN_JOSEPH }}
-          GARMIN_TOKEN_JUHUA:    ${{ secrets.GARMIN_TOKEN_JUHUA }}
-          GARMIN_TOKEN_CYNTHIA:  ${{ secrets.GARMIN_TOKEN_CYNTHIA }}
-          GARMIN_TOKEN_NANA:     ${{ secrets.GARMIN_TOKEN_NANA }}
-          GARMIN_TOKEN_JAY:      ${{ secrets.GARMIN_TOKEN_JAY }}
-          GARMIN_TOKEN_RAY:      ${{ secrets.GARMIN_TOKEN_RAY }}
+          # 王正妹 Karen
+          GARMIN_EMAIL_KAREN:   ${{ secrets.GARMIN_EMAIL_KAREN }}
+          GARMIN_PASS_KAREN:    ${{ secrets.GARMIN_PASS_KAREN }}
+          # 鳩鴿 Joseph
+          GARMIN_EMAIL_JOSEPH:  ${{ secrets.GARMIN_EMAIL_JOSEPH }}
+          GARMIN_PASS_JOSEPH:   ${{ secrets.GARMIN_PASS_JOSEPH }}
+          # 菊花 Juhua
+          GARMIN_EMAIL_JUHUA:   ${{ secrets.GARMIN_EMAIL_JUHUA }}
+          GARMIN_PASS_JUHUA:    ${{ secrets.GARMIN_PASS_JUHUA }}
+          # 搖不停 Cynthia
+          GARMIN_EMAIL_CYNTHIA: ${{ secrets.GARMIN_EMAIL_CYNTHIA }}
+          GARMIN_PASS_CYNTHIA:  ${{ secrets.GARMIN_PASS_CYNTHIA }}
+          # Nana
+          GARMIN_EMAIL_NANA:    ${{ secrets.GARMIN_EMAIL_NANA }}
+          GARMIN_PASS_NANA:     ${{ secrets.GARMIN_PASS_NANA }}
+          # Jay
+          GARMIN_EMAIL_JAY:     ${{ secrets.GARMIN_EMAIL_JAY }}
+          GARMIN_PASS_JAY:      ${{ secrets.GARMIN_PASS_JAY }}
+          # Ray
+          GARMIN_EMAIL_RAY:     ${{ secrets.GARMIN_EMAIL_RAY }}
+          GARMIN_PASS_RAY:      ${{ secrets.GARMIN_PASS_RAY }}
         run: python scripts/fetch_garmin.py
 
       - name: 💾 Commit & push updated data
         run: |
           git config user.name  "health-bot"
           git config user.email "bot@health-community.dev"
-          git add data/
-          # 只有真的有變更才 commit
-          git diff --staged --quiet || git commit -m "📊 Auto-sync Garmin data $(date +'%Y-%m-%d %H:%M') CST"
+          git add data/daily.json data/weekly-steps.json
+          git diff --staged --quiet || \
+            git commit -m "📊 Auto-sync $(TZ='Asia/Taipei' date +'%Y-%m-%d %H:%M') CST"
           git push
