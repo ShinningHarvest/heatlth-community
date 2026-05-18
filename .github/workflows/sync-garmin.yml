@@ -2,8 +2,8 @@ name: 🦾 每日 Garmin 數據同步
 
 on:
   schedule:
-    - cron: '0 0 * * *'→ Runs at 00:00
-    - cron: '0 13 * * *'→ Runs at 13:00
+    - cron: '0 0 * * *'
+    - cron: '0 13 * * *'
   workflow_dispatch:
 
 env:
@@ -26,11 +26,29 @@ jobs:
       - name: "📦 Install dependencies"
         run: pip install -r requirements.txt
 
-      - name: "🔍 Diagnose garminconnect"
-        run: |
-          python3 -c "import garminconnect; print('version:', getattr(garminconnect, '__version__', 'N/A'))"
-          python3 -c "from garminconnect import Garmin, GarminConnectConnectionError, GarminConnectTooManyRequestsError; print('imports OK')"
-
       - name: "🏃 Fetch all members' Garmin data"
         env:
           GARMIN_EMAIL_KAREN:   ${{ secrets.GARMIN_EMAIL_KAREN }}
+          GARMIN_PASS_KAREN:    ${{ secrets.GARMIN_PASS_KAREN }}
+          GARMIN_EMAIL_JOSEPH:  ${{ secrets.GARMIN_EMAIL_JOSEPH }}
+          GARMIN_PASS_JOSEPH:   ${{ secrets.GARMIN_PASS_JOSEPH }}
+          GARMIN_EMAIL_JUHUA:   ${{ secrets.GARMIN_EMAIL_JUHUA }}
+          GARMIN_PASS_JUHUA:    ${{ secrets.GARMIN_PASS_JUHUA }}
+          GARMIN_EMAIL_CYNTHIA: ${{ secrets.GARMIN_EMAIL_CYNTHIA }}
+          GARMIN_PASS_CYNTHIA:  ${{ secrets.GARMIN_PASS_CYNTHIA }}
+          GARMIN_EMAIL_NANA:    ${{ secrets.GARMIN_EMAIL_NANA }}
+          GARMIN_PASS_NANA:     ${{ secrets.GARMIN_PASS_NANA }}
+          GARMIN_EMAIL_JAY:     ${{ secrets.GARMIN_EMAIL_JAY }}
+          GARMIN_PASS_JAY:      ${{ secrets.GARMIN_PASS_JAY }}
+          GARMIN_EMAIL_RAY:     ${{ secrets.GARMIN_EMAIL_RAY }}
+          GARMIN_PASS_RAY:      ${{ secrets.GARMIN_PASS_RAY }}
+        run: python scripts/fetch_garmin.py
+
+      - name: "💾 Commit & push"
+        run: |
+          git config user.name "health-bot"
+          git config user.email "bot@health-community.dev"
+          git add data/daily.json data/weekly-steps.json
+          git diff --staged --quiet || \
+          git commit -m "📊 Auto-sync $(TZ='Asia/Taipei' date +'%Y-%m-%d %H:%M') CST"
+          git push
