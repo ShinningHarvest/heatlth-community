@@ -1,4 +1,4 @@
-name: 🦶 每日 Garmin 數據同步
+name: 🦾 每日 Garmin 數據同步
 
 on:
   schedule:
@@ -23,25 +23,15 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: 📦 Install dependencies
+      - name: "📦 Install dependencies"
         run: pip install -r requirements.txt
 
-      - name: 🔍 Diagnose environment
+      - name: "🔍 Diagnose garminconnect"
         run: |
-          python - <<'EOF'
-import sys, traceback
-print(f"Python: {sys.version}")
-try:
-    import garminconnect
-    print(f"garminconnect version: {garminconnect.__version__}")
-    from garminconnect import Garmin, GarminConnectConnectionError, GarminConnectTooManyRequestsError
-    print("✅ All imports OK")
-except Exception as e:
-    traceback.print_exc()
-    print(f"❌ Import error: {e}")
-EOF
+          python3 -c "import garminconnect; print('version:', getattr(garminconnect, '__version__', 'N/A'))"
+          python3 -c "from garminconnect import Garmin, GarminConnectConnectionError, GarminConnectTooManyRequestsError; print('imports OK')"
 
-      - name: 🏃 Fetch all members' Garmin data
+      - name: "🏃 Fetch all members' Garmin data"
         env:
           GARMIN_EMAIL_KAREN:   ${{ secrets.GARMIN_EMAIL_KAREN }}
           GARMIN_PASS_KAREN:    ${{ secrets.GARMIN_PASS_KAREN }}
@@ -57,9 +47,9 @@ EOF
           GARMIN_PASS_JAY:      ${{ secrets.GARMIN_PASS_JAY }}
           GARMIN_EMAIL_RAY:     ${{ secrets.GARMIN_EMAIL_RAY }}
           GARMIN_PASS_RAY:      ${{ secrets.GARMIN_PASS_RAY }}
-        run: python scripts/fetch_garmin.py || echo "::warning::fetch_garmin.py exited with code $?"
+        run: python3 scripts/fetch_garmin.py
 
-      - name: 💾 Commit & push
+      - name: "💾 Commit & push"
         run: |
           git config user.name "health-bot"
           git config user.email "bot@health-community.dev"
