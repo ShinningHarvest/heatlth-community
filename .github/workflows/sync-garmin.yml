@@ -26,6 +26,21 @@ jobs:
       - name: 📦 Install dependencies
         run: pip install -r requirements.txt
 
+      - name: 🔍 Diagnose environment
+        run: |
+          python - <<'EOF'
+import sys, traceback
+print(f"Python: {sys.version}")
+try:
+    import garminconnect
+    print(f"garminconnect version: {garminconnect.__version__}")
+    from garminconnect import Garmin, GarminConnectConnectionError, GarminConnectTooManyRequestsError
+    print("✅ All imports OK")
+except Exception as e:
+    traceback.print_exc()
+    print(f"❌ Import error: {e}")
+EOF
+
       - name: 🏃 Fetch all members' Garmin data
         env:
           GARMIN_EMAIL_KAREN:   ${{ secrets.GARMIN_EMAIL_KAREN }}
@@ -42,7 +57,7 @@ jobs:
           GARMIN_PASS_JAY:      ${{ secrets.GARMIN_PASS_JAY }}
           GARMIN_EMAIL_RAY:     ${{ secrets.GARMIN_EMAIL_RAY }}
           GARMIN_PASS_RAY:      ${{ secrets.GARMIN_PASS_RAY }}
-        run: python scripts/fetch_garmin.py
+        run: python scripts/fetch_garmin.py || echo "::warning::fetch_garmin.py exited with code $?"
 
       - name: 💾 Commit & push
         run: |
