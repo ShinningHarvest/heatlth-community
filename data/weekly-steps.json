@@ -3,7 +3,7 @@
     "community": "三萬步健康社群",
     "weekly_goal": 30000,
     "start_date": "2026-03-01",
-    "last_updated": "2026-11-14"
+    "last_updated": "2026-11-15"
   },
   "weeks": [
     {
@@ -1579,6 +1579,55 @@
       "week_start": "2026-11-08",
       "period": "2026-11-08 ~ 2026-11-14",
       "last_sync": "2026-11-14 13:06",
+      "results": [
+        {
+          "rank": 1,
+          "name": "王正妹",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 2,
+          "name": "鳩鴿",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 3,
+          "name": "菊花",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 4,
+          "name": "搖不停",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 5,
+          "name": "Nana",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 6,
+          "name": "Jay",
+          "steps": 0,
+          "reached": false
+        },
+        {
+          "rank": 7,
+          "name": "Ray",
+          "steps": 0,
+          "reached": false
+        }
+      ]
+    },
+    {
+      "week_start": "2026-11-15",
+      "period": "2026-11-15 ~ 2026-11-15",
+      "last_sync": "2026-11-15 02:36",
       "results": [
         {
           "rank": 1,
